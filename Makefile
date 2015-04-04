@@ -1,16 +1,16 @@
 all: tcpserv tcpclnt
 
-tcpclnt: tcpclnt.cpp chat_message.hpp
-	g++ tcpclnt.cpp -lboost_system -o tcpclnt --std=c++11 -lpthread -O2\
+tcpclnt: src/tcpclnt.cpp include/chat_message.hpp
+	g++ src/tcpclnt.cpp -lboost_system -o bin/tcpclnt --std=c++11 -lpthread -O2\
 		-I/usr/local/Cellar/boost/1.57.0/include/ \
 		-L/usr/local/Cellar/boost/1.57.0/lib/
 
 
-tcpserv: tcpserv.cpp chat_message.hpp
-	g++ tcpserv.cpp -lboost_system -o tcpserv --std=c++11 -lpthread -O2\
+tcpserv: src/tcpserv.cpp include/chat_message.hpp
+	g++ src/tcpserv.cpp -lboost_system -o bin/tcpserv --std=c++11 -lpthread -O2\
 		-I/usr/local/Cellar/boost/1.57.0/include/ \
 		-L/usr/local/Cellar/boost/1.57.0/lib/
 
 clean:
-	rm tcpserv
-	rm tcpclnt
+	rm bin/tcpserv
+	rm bin/tcpclnt
